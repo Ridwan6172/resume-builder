@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -35,18 +34,26 @@ const SkillsSection: React.FC = () => {
       return;
     }
 
+    // Create a new skill with proper values before adding to store
+    const skillName = newSkill.trim();
+    const skillId = Math.random().toString(36).substr(2, 9);
+    
+    // Add directly with correct values instead of adding empty and then updating
     addSkill();
-    const newSkillId = resumeData.skills[resumeData.skills.length - 1]?.id;
+    const newSkillId = resumeData.skills.length > 0 ? 
+      resumeData.skills[resumeData.skills.length - 1]?.id : skillId;
+      
     if (newSkillId) {
       updateSkill(newSkillId, { 
-        name: newSkill.trim(), 
+        name: skillName, 
         category: skillCategory
       });
+      
       setNewSkill("");
       
       toast({
         title: "Skill added",
-        description: `${newSkill} has been added to your ${skillCategory} skills.`,
+        description: `${skillName} has been added to your ${skillCategory} skills.`,
       });
     }
   };

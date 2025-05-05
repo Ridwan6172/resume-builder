@@ -24,18 +24,90 @@ const TemplateSelection: React.FC = () => {
   const [selectedPreviewTemplate, setSelectedPreviewTemplate] = useState("");
   
   const templates = [
-    { id: 'modern', name: 'Modern', description: 'Clean and contemporary design with a touch of color', category: 'professional' },
-    { id: 'professional', name: 'Professional', description: 'Traditional layout ideal for corporate applications', category: 'professional' },
-    { id: 'minimal', name: 'Minimal', description: 'Simple and elegant design with focus on content', category: 'simple' },
-    { id: 'creative', name: 'Creative', description: 'Bold and eye-catching design for creative fields', category: 'creative' },
-    { id: 'classic', name: 'Classic', description: 'Timeless design with traditional formatting', category: 'professional' },
-    { id: 'executive', name: 'Executive', description: 'Sophisticated design for senior-level positions', category: 'professional' },
-    { id: 'technical', name: 'Technical', description: 'Specialized layout for technical roles and developers', category: 'technical' },
-    { id: 'academic', name: 'Academic', description: 'Formal layout for academic and research positions', category: 'academic' },
-    { id: 'compact', name: 'Compact', description: 'Space-efficient design that fits more content on a page', category: 'simple' },
-    { id: 'elegant', name: 'Elegant', description: 'Refined design with subtle styling and clean typography', category: 'creative' },
-    { id: 'contemporary', name: 'Contemporary', description: 'Modern design with a fresh, current aesthetic', category: 'creative' },
-    { id: 'professional-plus', name: 'Professional Plus', description: 'Enhanced professional template with additional visual elements', category: 'professional' }
+    { 
+      id: 'modern', 
+      name: 'Modern', 
+      description: 'Clean and contemporary design with a touch of color', 
+      category: 'professional',
+      previewImage: '/templates/modern-template.png'
+    },
+    { 
+      id: 'professional', 
+      name: 'Professional', 
+      description: 'Traditional layout ideal for corporate applications', 
+      category: 'professional',
+      previewImage: '/templates/professional-template.png'
+    },
+    { 
+      id: 'minimal', 
+      name: 'Minimal', 
+      description: 'Simple and elegant design with focus on content', 
+      category: 'simple',
+      previewImage: '/templates/minimal-template.png'
+    },
+    { 
+      id: 'creative', 
+      name: 'Creative', 
+      description: 'Bold and eye-catching design for creative fields', 
+      category: 'creative',
+      previewImage: '/templates/creative-template.png'
+    },
+    { 
+      id: 'classic', 
+      name: 'Classic', 
+      description: 'Timeless design with traditional formatting', 
+      category: 'professional',
+      previewImage: '/templates/classic-template.png'
+    },
+    { 
+      id: 'executive', 
+      name: 'Executive', 
+      description: 'Sophisticated design for senior-level positions', 
+      category: 'professional',
+      previewImage: '/templates/executive-template.png'
+    },
+    { 
+      id: 'technical', 
+      name: 'Technical', 
+      description: 'Specialized layout for technical roles and developers', 
+      category: 'technical',
+      previewImage: '/templates/technical-template.png'
+    },
+    { 
+      id: 'academic', 
+      name: 'Academic', 
+      description: 'Formal layout for academic and research positions', 
+      category: 'academic',
+      previewImage: '/templates/academic-template.png'
+    },
+    { 
+      id: 'compact', 
+      name: 'Compact', 
+      description: 'Space-efficient design that fits more content on a page', 
+      category: 'simple',
+      previewImage: '/templates/compact-template.png'
+    },
+    { 
+      id: 'elegant', 
+      name: 'Elegant', 
+      description: 'Refined design with subtle styling and clean typography', 
+      category: 'creative',
+      previewImage: '/templates/elegant-template.png'
+    },
+    { 
+      id: 'contemporary', 
+      name: 'Contemporary', 
+      description: 'Modern design with a fresh, current aesthetic', 
+      category: 'creative',
+      previewImage: '/templates/contemporary-template.png'
+    },
+    { 
+      id: 'professional-plus', 
+      name: 'Professional Plus', 
+      description: 'Enhanced professional template with additional visual elements', 
+      category: 'professional',
+      previewImage: '/templates/professional-plus-template.png'
+    }
   ];
 
   const handleSelectTemplate = (templateId: string) => {
@@ -117,66 +189,96 @@ const TemplateSelection: React.FC = () => {
                 }`}
               >
                 <div className="h-64 bg-gray-100 flex items-center justify-center border-b relative group">
-                  <div className={`h-full w-full bg-gradient-to-br ${
-                    template.id === 'modern' ? 'from-blue-100 to-blue-50' :
-                    template.id === 'professional' ? 'from-gray-100 to-gray-50' :
-                    template.id === 'minimal' ? 'from-white to-gray-50' :
-                    template.id === 'creative' ? 'from-blue-500 to-blue-400' :
-                    template.id === 'executive' ? 'from-slate-200 to-slate-100' :
-                    template.id === 'technical' ? 'from-cyan-100 to-cyan-50' :
-                    template.id === 'academic' ? 'from-amber-50 to-amber-100' :
-                    template.id === 'compact' ? 'from-gray-50 to-white' :
-                    template.id === 'elegant' ? 'from-purple-50 to-pink-50' :
-                    template.id === 'contemporary' ? 'from-indigo-100 to-blue-100' :
-                    template.id === 'professional-plus' ? 'from-blue-200 to-blue-100' :
-                    'from-gray-200 to-gray-100'
-                  } flex flex-col`}>
-                    <div className={`${
-                      template.id === 'creative' ? 'h-full flex' :
-                      'p-4'
-                    }`}>
-                      {template.id === 'creative' ? (
-                        <>
-                          <div className="w-1/3 bg-blue-600 p-3">
-                            <div className="h-12 w-12 bg-blue-300 rounded-full mx-auto"></div>
-                            <div className="mt-3 h-3 bg-blue-300 w-20 mx-auto rounded"></div>
-                            <div className="mt-8">
-                              <div className="h-2 bg-blue-300 w-full rounded mb-2"></div>
-                              <div className="h-2 bg-blue-300 w-3/4 rounded mb-2"></div>
-                              <div className="h-2 bg-blue-300 w-5/6 rounded"></div>
+                  {/* Use actual preview image if available */}
+                  {template.previewImage ? (
+                    <div className="h-full w-full overflow-hidden">
+                      <img 
+                        src={template.previewImage} 
+                        alt={`${template.name} template preview`}
+                        className="w-full h-full object-cover"
+                        onError={(e) => {
+                          // Fallback to placeholder representation if image fails to load
+                          e.currentTarget.style.display = 'none';
+                          e.currentTarget.parentElement!.classList.add('bg-gradient-to-br');
+                          e.currentTarget.parentElement!.classList.add(
+                            template.id === 'modern' ? 'from-blue-100 to-blue-50' :
+                            template.id === 'professional' ? 'from-gray-100 to-gray-50' :
+                            template.id === 'minimal' ? 'from-white to-gray-50' :
+                            template.id === 'creative' ? 'from-blue-500 to-blue-400' :
+                            template.id === 'executive' ? 'from-slate-200 to-slate-100' :
+                            template.id === 'technical' ? 'from-cyan-100 to-cyan-50' :
+                            template.id === 'academic' ? 'from-amber-50 to-amber-100' :
+                            template.id === 'compact' ? 'from-gray-50 to-white' :
+                            template.id === 'elegant' ? 'from-purple-50 to-pink-50' :
+                            template.id === 'contemporary' ? 'from-indigo-100 to-blue-100' :
+                            template.id === 'professional-plus' ? 'from-blue-200 to-blue-100' :
+                            'from-gray-200 to-gray-100'
+                          );
+                        }}
+                      />
+                    </div>
+                  ) : (
+                    <div className={`h-full w-full bg-gradient-to-br ${
+                      template.id === 'modern' ? 'from-blue-100 to-blue-50' :
+                      template.id === 'professional' ? 'from-gray-100 to-gray-50' :
+                      template.id === 'minimal' ? 'from-white to-gray-50' :
+                      template.id === 'creative' ? 'from-blue-500 to-blue-400' :
+                      template.id === 'executive' ? 'from-slate-200 to-slate-100' :
+                      template.id === 'technical' ? 'from-cyan-100 to-cyan-50' :
+                      template.id === 'academic' ? 'from-amber-50 to-amber-100' :
+                      template.id === 'compact' ? 'from-gray-50 to-white' :
+                      template.id === 'elegant' ? 'from-purple-50 to-pink-50' :
+                      template.id === 'contemporary' ? 'from-indigo-100 to-blue-100' :
+                      template.id === 'professional-plus' ? 'from-blue-200 to-blue-100' :
+                      'from-gray-200 to-gray-100'
+                    } flex flex-col`}>
+                      <div className={`${
+                        template.id === 'creative' ? 'h-full flex' :
+                        'p-4'
+                      }`}>
+                        {template.id === 'creative' ? (
+                          <>
+                            <div className="w-1/3 bg-blue-600 p-3">
+                              <div className="h-12 w-12 bg-blue-300 rounded-full mx-auto"></div>
+                              <div className="mt-3 h-3 bg-blue-300 w-20 mx-auto rounded"></div>
+                              <div className="mt-8">
+                                <div className="h-2 bg-blue-300 w-full rounded mb-2"></div>
+                                <div className="h-2 bg-blue-300 w-3/4 rounded mb-2"></div>
+                                <div className="h-2 bg-blue-300 w-5/6 rounded"></div>
+                              </div>
                             </div>
-                          </div>
-                          <div className="w-2/3 p-3">
-                            <div className="h-4 bg-gray-300 w-2/3 rounded mb-4"></div>
+                            <div className="w-2/3 p-3">
+                              <div className="h-4 bg-gray-300 w-2/3 rounded mb-4"></div>
+                              <div className="h-2 bg-gray-300 w-full rounded mb-2"></div>
+                              <div className="h-2 bg-gray-300 w-full rounded mb-2"></div>
+                              <div className="h-2 bg-gray-300 w-5/6 rounded mb-6"></div>
+                              
+                              <div className="h-4 bg-gray-300 w-1/2 rounded mb-4"></div>
+                              <div className="h-2 bg-gray-300 w-full rounded mb-2"></div>
+                              <div className="h-2 bg-gray-300 w-full rounded mb-2"></div>
+                              <div className="h-2 bg-gray-300 w-3/4 rounded"></div>
+                            </div>
+                          </>
+                        ) : (
+                          <>
+                            <div className="h-6 bg-gray-300 w-1/3 rounded mb-4"></div>
+                            <div className="flex justify-between mb-6">
+                              <div className="h-3 bg-gray-300 w-1/2 rounded"></div>
+                              <div className="h-3 bg-gray-300 w-1/4 rounded"></div>
+                            </div>
                             <div className="h-2 bg-gray-300 w-full rounded mb-2"></div>
                             <div className="h-2 bg-gray-300 w-full rounded mb-2"></div>
                             <div className="h-2 bg-gray-300 w-5/6 rounded mb-6"></div>
                             
-                            <div className="h-4 bg-gray-300 w-1/2 rounded mb-4"></div>
+                            <div className="h-4 bg-gray-300 w-1/4 rounded mb-4"></div>
                             <div className="h-2 bg-gray-300 w-full rounded mb-2"></div>
                             <div className="h-2 bg-gray-300 w-full rounded mb-2"></div>
                             <div className="h-2 bg-gray-300 w-3/4 rounded"></div>
-                          </div>
-                        </>
-                      ) : (
-                        <>
-                          <div className="h-6 bg-gray-300 w-1/3 rounded mb-4"></div>
-                          <div className="flex justify-between mb-6">
-                            <div className="h-3 bg-gray-300 w-1/2 rounded"></div>
-                            <div className="h-3 bg-gray-300 w-1/4 rounded"></div>
-                          </div>
-                          <div className="h-2 bg-gray-300 w-full rounded mb-2"></div>
-                          <div className="h-2 bg-gray-300 w-full rounded mb-2"></div>
-                          <div className="h-2 bg-gray-300 w-5/6 rounded mb-6"></div>
-                          
-                          <div className="h-4 bg-gray-300 w-1/4 rounded mb-4"></div>
-                          <div className="h-2 bg-gray-300 w-full rounded mb-2"></div>
-                          <div className="h-2 bg-gray-300 w-full rounded mb-2"></div>
-                          <div className="h-2 bg-gray-300 w-3/4 rounded"></div>
-                        </>
-                      )}
+                          </>
+                        )}
+                      </div>
                     </div>
-                  </div>
+                  )}
 
                   <Dialog>
                     <DialogTrigger asChild>

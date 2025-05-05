@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useResumeStore } from "@/lib/store";
@@ -7,20 +7,34 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const SummarySection: React.FC = () => {
   const { resumeData, updateResumeData } = useResumeStore();
+  const [charCount, setCharCount] = useState(0);
+  
+  useEffect(() => {
+    setCharCount(resumeData.summary.length);
+  }, [resumeData.summary]);
 
   return (
     <div>
       <div className="field-group">
-        <Label htmlFor="summary" className="block text-sm font-medium mb-1">
-          Professional Summary
-        </Label>
+        <div className="flex justify-between items-center mb-1">
+          <Label htmlFor="summary" className="block text-sm font-medium">
+            Professional Summary
+          </Label>
+          <span className="text-xs text-gray-500">{charCount}/400 characters</span>
+        </div>
         <Textarea
           id="summary"
           placeholder="A brief summary of your professional background, skills, and career goals (2-4 sentences recommended)."
           value={resumeData.summary}
-          onChange={(e) => updateResumeData({ summary: e.target.value })}
+          onChange={(e) => {
+            if (e.target.value.length <= 400) {
+              updateResumeData({ summary: e.target.value });
+              setCharCount(e.target.value.length);
+            }
+          }}
           rows={4}
           className="resize-none"
+          maxLength={400}
         />
       </div>
       
